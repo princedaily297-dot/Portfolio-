@@ -29,17 +29,19 @@
         header {
             text-align: center;
             margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #333;
         }
 
         .logo {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%; /* Makes the image circular */
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
             object-fit: cover;
-            border: 3px solid #00e5ff; /* Neon blue accent */
+            border: 3px solid #00e5ff;
             box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
             margin-bottom: 15px;
-            background-color: #2a2a2a; /* Gives a background just in case */
+            background-color: #2a2a2a;
         }
 
         h1 {
@@ -57,16 +59,65 @@
             margin-top: 5px;
         }
 
-        /* Section Headers */
+        /* Main Focus (Featured Services) */
         h2 {
+            color: #ffffff;
+            font-size: 1.8em;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        .featured-card {
+            background-color: #252525;
+            border: 1px solid #444;
+            border-top: 4px solid #00e5ff;
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .featured-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 229, 255, 0.2);
+        }
+
+        .featured-card h3 {
+            color: #00e5ff;
+            margin-top: 0;
+            font-size: 1.3em;
+        }
+
+        .featured-card p {
+            font-size: 0.95em;
+            color: #bbb;
+        }
+
+        .featured-price {
+            display: block;
+            margin-top: 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #4caf50;
+        }
+
+        /* Tables for other services */
+        h3.section-title {
             color: #00e5ff;
             border-bottom: 2px solid #333;
             padding-bottom: 10px;
             margin-top: 40px;
-            font-size: 1.6em;
+            font-size: 1.4em;
         }
 
-        /* Tables / Service Lists */
         .service-table {
             width: 100%;
             border-collapse: collapse;
@@ -89,46 +140,43 @@
         }
 
         .price {
-            color: #4caf50; /* Green for money */
+            color: #4caf50;
             font-weight: bold;
+            text-align: right;
             white-space: nowrap;
         }
 
-        .warning {
-            color: #ff9800;
-            font-size: 0.85em;
-            display: block;
-            margin-top: 4px;
+        /* Footer / Terms */
+        .terms-box {
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            padding: 20px;
+            margin-top: 50px;
+            border-radius: 8px;
+            font-size: 0.8em;
+            color: #888;
         }
 
-        /* Disclaimers */
-        .disclaimer-box {
-            background-color: #2c1e1e;
-            border-left: 4px solid #f44336;
-            padding: 15px;
-            margin-top: 30px;
-            border-radius: 5px;
-            font-size: 0.9em;
-            color: #ffcdd2;
-        }
-
-        .disclaimer-box ul {
-            margin: 10px 0 0 0;
-            padding-left: 20px;
+        .terms-box h4 {
+            color: #aaa;
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* WhatsApp Button */
         .contact-section {
             text-align: center;
-            margin-top: 50px;
+            margin-top: 40px;
         }
 
         .whatsapp-btn {
             display: inline-block;
-            background-color: #25D366; /* Official WhatsApp Green */
+            background-color: #25D366;
             color: white;
-            padding: 15px 30px;
-            font-size: 1.2em;
+            padding: 18px 40px;
+            font-size: 1.3em;
             font-weight: bold;
             text-decoration: none;
             border-radius: 50px;
@@ -139,18 +187,15 @@
         .whatsapp-btn:hover {
             background-color: #128C7E;
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
         }
 
         /* Mobile Responsiveness */
-        @media (max-width: 600px) {
-            .service-table th, .service-table td {
-                padding: 10px;
-                font-size: 0.9em;
-            }
+        @media (max-width: 650px) {
+            .featured-grid { grid-template-columns: 1fr; }
+            .service-table th, .service-table td { padding: 10px; font-size: 0.9em; }
             h1 { font-size: 2em; }
             .container { padding: 15px; }
-            .logo { width: 140px; height: 140px; }
+            .logo { width: 130px; height: 130px; }
         }
     </style>
 </head>
@@ -158,33 +203,72 @@
 
 <div class="container">
     <header>
-        <!-- Your ImgBB Image is now linked here! -->
         <img src="https://i.ibb.co/3mKHmmVx/file-00000000583881f4850db020c90ef767.png" alt="REGENT_TECH Logo" class="logo">
         <h1>REGENT_TECH</h1>
-        <p class="tagline">Your Digital Edge for Gaming & Tech Solutions</p>
+        <p class="tagline">Premium Web Development & Digital Services</p>
     </header>
 
-    <!-- GAMING SERVICES -->
-    <h2>🎮 Gaming Services</h2>
+    <!-- MAIN FOCUS: WEB & BOTS -->
+    <h2>🚀 Our Core Services</h2>
+    <div class="featured-grid">
+        <div class="featured-card">
+            <h3>Website Building</h3>
+            <p>Clean, mobile-friendly landing pages and custom website templates built for your brand.</p>
+            <span class="featured-price">$5 – $10</span>
+        </div>
+        <div class="featured-card">
+            <h3>Chatbot Setup</h3>
+            <p>Automated WhatsApp and Telegram bots for menus, auto-replies, and customer support.</p>
+            <span class="featured-price">$5 – $10</span>
+        </div>
+    </div>
+
+    <!-- INTERNET SERVICES -->
+    <h3 class="section-title">🌐 Internet & Automation Services</h3>
     <table class="service-table">
         <tr>
             <th>Service</th>
-            <th>Price (USD)</th>
+            <th style="text-align: right;">Price (USD)</th>
         </tr>
         <tr>
-            <td>FF & BGMI Hacks <span class="warning">⚠️ Violates game ToS, risk of ban</span></td>
+            <td>Virtual Numbers (Verification)</td>
+            <td class="price">$1–3</td>
+        </tr>
+        <tr>
+            <td>WhatsApp Tools & Automation</td>
+            <td class="price">$3–8</td>
+        </tr>
+        <tr>
+            <td>Project Rental/Sale (Bots, Templates)</td>
             <td class="price">$5–10</td>
         </tr>
         <tr>
-            <td>FF Proxy <span class="warning">⚠️ May violate ToS</span></td>
+            <td>Idea Building & Project Consulting</td>
+            <td class="price">$2–5</td>
+        </tr>
+    </table>
+
+    <!-- GAMING SERVICES -->
+    <h3 class="section-title">🎮 Gaming Services</h3>
+    <table class="service-table">
+        <tr>
+            <th>Service</th>
+            <th style="text-align: right;">Price (USD)</th>
+        </tr>
+        <tr>
+            <td>FF & BGMI Hacks / Mods</td>
+            <td class="price">$5–10</td>
+        </tr>
+        <tr>
+            <td>FF Proxy Service</td>
             <td class="price">$3–7</td>
         </tr>
         <tr>
-            <td>Modded APK – Premium <span class="warning">⚠️ Copyright/ToS risk</span></td>
+            <td>Modded APK – Premium Apps</td>
             <td class="price">$2–8</td>
         </tr>
         <tr>
-            <td>Game Mods – Any Kind <span class="warning">⚠️ ToS risk</span></td>
+            <td>Game Mods – Any Kind</td>
             <td class="price">$3–10</td>
         </tr>
         <tr>
@@ -193,99 +277,47 @@
         </tr>
     </table>
 
-    <!-- INTERNET SERVICES -->
-    <h2>🌐 Internet Services</h2>
+    <!-- AI & DESIGN SERVICES -->
+    <h3 class="section-title">🤖 AI & Design Services</h3>
     <table class="service-table">
         <tr>
             <th>Service</th>
-            <th>Price (USD)</th>
+            <th style="text-align: right;">Price (USD)</th>
         </tr>
         <tr>
-            <td>Virtual Numbers <span class="warning">⚠️ Legitimate use only</span></td>
-            <td class="price">$1–3</td>
-        </tr>
-        <tr>
-            <td>WhatsApp Tools <span class="warning">⚠️ Violates WhatsApp ToS</span></td>
-            <td class="price">$3–8</td>
-        </tr>
-        <tr>
-            <td>WhatsApp Chatbot (Official API) ✅</td>
-            <td class="price">$7–10</td>
-        </tr>
-        <tr>
-            <td>Telegram Chatbot</td>
-            <td class="price">$5–9</td>
-        </tr>
-        <tr>
-            <td>Website Building (1-page)</td>
-            <td class="price">$8–10</td>
-        </tr>
-        <tr>
-            <td>Website Customization</td>
-            <td class="price">$5–7</td>
-        </tr>
-        <tr>
-            <td>Project Rental/Sale (Bots, Templates)</td>
-            <td class="price">$5–10</td>
-        </tr>
-        <tr>
-            <td>Idea Building for People</td>
-            <td class="price">$2–5</td>
-        </tr>
-    </table>
-
-    <!-- AI SERVICES -->
-    <h2>🤖 AI-Assisted Services</h2>
-    <table class="service-table">
-        <tr>
-            <th>Service</th>
-            <th>Price (USD)</th>
-        </tr>
-        <tr>
-            <td>AI Content Writing</td>
-            <td class="price">$1–3</td>
+            <td>AI Content Writing & Prompt Engineering</td>
+            <td class="price">$1–10</td>
         </tr>
         <tr>
             <td>Resume/CV Formatting</td>
             <td class="price">$3–5</td>
         </tr>
         <tr>
-            <td>Basic Graphic Design</td>
+            <td>Basic Graphic Design (Logos/Banners)</td>
             <td class="price">$2–5</td>
         </tr>
         <tr>
-            <td>Simple Automation Setup</td>
+            <td>Simple Automation Setup & Scheduling</td>
             <td class="price">$4–8</td>
-        </tr>
-        <tr>
-            <td>Prompt Engineering / AI Workflow</td>
-            <td class="price">$5–10</td>
-        </tr>
-        <tr>
-            <td>Social Media Scheduling</td>
-            <td class="price">$4–7</td>
         </tr>
     </table>
 
-    <!-- DISCLAIMERS -->
-    <div class="disclaimer-box">
-        <strong>⚠️ Important Disclaimers</strong>
-        <ul>
-            <li><strong>Gaming & App Mods:</strong> Game hacks, modded APKs, FF proxy, and unofficial WhatsApp tools may violate game/app terms of service and copyright laws. Use at your own risk. We do not encourage cheating or illegal activity.</li>
-            <li><strong>Virtual Numbers:</strong> For legitimate verification only. We do not support fraud, bypassing platform rules, or identity deception.</li>
-            <li><strong>WhatsApp Tools:</strong> We highly recommend building with official APIs to avoid account bans. Unofficial tools carry high risk.</li>
-            <li>Prices are starting ranges. Final price depends on project complexity. Contact us for a custom quote.</li>
-        </ul>
-    </div>
-
     <!-- CONTACT BUTTON -->
     <div class="contact-section">
-        <!-- This automatically redirects to your WhatsApp without showing the number -->
         <a href="https://wa.me/2349072489087" target="_blank" class="whatsapp-btn">
             💬 Place Your Order on WhatsApp
         </a>
     </div>
+
+    <!-- PROFESSIONAL TERMS & DISCLAIMERS -->
+    <div class="terms-box">
+        <h4>Terms of Service & Usage Policy</h4>
+        <p><strong>Third-Party Modifications:</strong> Game mods, modified APKs, and unofficial WhatsApp tools are provided for educational and personal use. These actions may violate the terms of service of their respective platforms. By purchasing, you accept full responsibility and acknowledge that account bans or restrictions are a risk. REGENT_TECH does not encourage illegal activity.</p>
+        <p><strong>Virtual Numbers:</strong> Provided strictly for legitimate account verification purposes. Any use for fraud, bypassing platform security, or identity deception is strictly prohibited.</p>
+        <p><strong>Pricing:</strong> All prices listed are starting ranges in USD. Final pricing depends on the complexity of the project. Please message us on WhatsApp for a custom quote.</p>
+    </div>
+
 </div>
 
 </body>
-              </html>
+</html>
